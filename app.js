@@ -29,3 +29,34 @@ class Book {
         this.status = status;
     }
 }
+
+// Take info from form input & add new book to the library
+function addNewBook() {
+    if (bookTitle.value === "" || authorName.value === "" || bookPage.value === "" || bookStatus.value === "") 
+    return;
+    cardGrid.innerHTML = "";
+    const newBook = new Book(bookTitle.value, authorName.value, bookPage.value, bookStatus.value);
+    myLibrary.push(newBook);
+    displayBooks();
+    closeModal();
+}
+
+// Change book status
+function changeBookStatus() {
+    let dataIndex = this.getAttribute("data-index");
+    if (myLibrary[dataIndex].status.toLowerCase() === "read") {
+        myLibrary[dataIndex].status = "Unread";
+    } else {
+        myLibrary[dataIndex].status = "Read";
+    }
+    displayBooks();
+}
+displayBooks();
+
+// Delete book from the Library
+function deleteBook() {
+    let dataIndex = this.getAttribute("data-index");
+    myLibrary.splice(dataIndex, 1);
+    cardGrid.innerHTML = "";
+    displayBooks();
+}
