@@ -115,3 +115,25 @@ function displayStats() {
     bookUnread.textContent = `${unreadBooks.length}`;
 }
 
+// Modal functions
+function displayModal() {
+    console.log("Display modal function is called");
+    modalBox.classList.add("show");
+}
+
+function closeModal() {
+    console.log("Close modal function is called");
+    modalBox.classList.remove("show");
+    resetInputs();
+}
+
+function resetInputs() {
+    bookTitle.value = "";
+    authorName.value = "";
+    bookPage.value = "";
+    bookStatus.value = "";
+}
+
+displayBooks();
+
+// Event Listeners
