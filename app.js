@@ -137,3 +137,9 @@ function resetInputs() {
 displayBooks();
 
 // Event Listeners
+addBook.addEventListener("click", function() {
+    console.log("Add button clicked!");
+    displayModal();
+});
+cancelBtn.addEventListener("click", closeModal);
+submitBtn.addEventListener("click", addNewBook);
